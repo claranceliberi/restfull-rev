@@ -6,7 +6,8 @@ services:
     ports:
       - '5000:5000'
     volumes:
-      - ./:/code
+      - ./:/app
+      - nodemodules:/app/node_modules
     networks:
       - database
   mongo:
@@ -22,5 +23,6 @@ services:
 
 volumes:
   mongodb:
+  nodemodules: {}
 networks:
   database:
