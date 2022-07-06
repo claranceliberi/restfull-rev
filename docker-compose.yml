@@ -1,8 +1,21 @@
 version: '3.9'
 services:
+  app:
+    restart: always
+    build:
+      context: ./client
+      target: production
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+    depends_on:
+      - node
   web:
     restart: always
-    build: ./client
+    build:
+      context: ./client
+      target: development
     ports:
       - "3000:3000"
     volumes:
