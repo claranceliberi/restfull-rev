@@ -4,7 +4,8 @@
   "description": "express-mongodb restfull ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node index.js",
+    "serve": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "format": "prettier --single-quote --check .",
@@ -16,7 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongodb": "^4.7.0"
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.2"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
@@ -35,5 +37,5 @@
       "prettier --single-quote --write",
       "eslint --fix"
     ]
-  },
+  }
 }
