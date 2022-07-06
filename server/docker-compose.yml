@@ -3,8 +3,10 @@ services:
   node:
     restart: always
     build: .
+    env_file:
+     - ./.env
     ports:
-      - '5000:5000'
+      - '${PORT}:${PORT}'
     volumes:
       - ./:/app
       - nodemodules:/app/node_modules
