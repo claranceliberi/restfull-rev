@@ -1,5 +1,18 @@
 version: '3.9'
 services:
+  web:
+    restart: always
+    build: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - nodemodulesClient:/app/node_modules
+    networks:
+      - backend
+    depends_on:
+      - node
+    
   node:
     restart: always
     build: ./server
@@ -9,7 +22,13 @@ services:
       - ./server:/app
       - nodemodules:/app/node_modules
     networks:
-      - database
+      database:
+      backend:
+        aliases:
+          - 'backend'
+
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     ports:
@@ -24,5 +43,7 @@ services:
 volumes:
   mongodb:
   nodemodules: {}
+  nodemodulesClient: {}
 networks:
   database:
+  backend:
