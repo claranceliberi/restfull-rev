@@ -6,7 +6,7 @@ async function startApp(app){
         await mongoose.connect(
             "mongodb://mongo:27017/voting"
         );
-        app.listen(3000,() => console.log('App started on port 3000'))
+        app.listen(process.env.PORT,() => console.log(`Server started on port ${process.env.PORT}`));
     }catch(error){
         console.error(error)
         process.exit(1)

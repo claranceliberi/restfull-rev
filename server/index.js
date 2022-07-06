@@ -1,3 +1,6 @@
+const dotEnv = require("dotenv");
+dotEnv.config();
+
 const {app} = require('./app')
 const {startApp} = require("./server")
 
