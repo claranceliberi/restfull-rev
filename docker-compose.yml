@@ -2,13 +2,11 @@ version: '3.9'
 services:
   node:
     restart: always
-    build: .
-    env_file:
-     - ./.env
+    build: ./server
     ports:
-      - '${PORT}:${PORT}'
+      - '5000:5000'
     volumes:
-      - ./:/app
+      - ./server:/app
       - nodemodules:/app/node_modules
     networks:
       - database
